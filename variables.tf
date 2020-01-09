@@ -87,6 +87,12 @@ variable "roles" {
   default     = []
 }
 
+variable "source_repository_url" {
+  type        = string
+  description = "The URL pointing to the hosted Cloud Source repository where the function is defined."
+  default     = null
+}
+
 variable "timeout" {
   type        = number
   description = "Timeout (in seconds) for the function. Default value is 60 seconds. Cannot be more than 540 seconds."

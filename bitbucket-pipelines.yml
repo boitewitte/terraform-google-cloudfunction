@@ -1,0 +1,38 @@
+image:
+  name: eu.gcr.io/rf-support-core/build-services:0.1.9
+  username: _json_key
+  password: "$GOOGLE_CREDENTIALS"
+
+pipelines:
+  default:
+    - step:
+        name: Validate
+        script:
+          - make validate
+  branches:
+    master:
+      - step:
+          name: Tag
+          script:
+            - export DEPLOYMENT=production
+            - make validate
+            - make tag/production \
+              TAG_BUILD_NUMBER=${BITBUCKET_BUILD_NUMBER}
+    develop:
+      - step:
+          name: Tag
+          script:
+            - export DEPLOYMENT=develop
+            - make validate
+            - make tag/develop \
+              TAG_BUILD_NUMBER=${BITBUCKET_BUILD_NUMBER}
+
+  pull-requests:
+    release/*:
+      - step:
+          name: Tag
+          script:
+            - export DEPLOYMENT=acceptance
+            - make validate
+            - make tag/release \
+              TAG_BUILD_NUMBER=${BITBUCKET_BUILD_NUMBER}
