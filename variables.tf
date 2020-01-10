@@ -42,6 +42,18 @@ variable "function_source" {
   default     = null
 }
 
+variable "invoker_members" {
+  type        = list(string)
+  description = "Cloudfunction can be invoked by the members defined in this list"
+  default     = []
+}
+
+variable "is_public_function" {
+  type        = bool
+  description = "Cloudfunction can be invoked by all users - Public function"
+  default     = false
+}
+
 variable "labels" {
   type        = map(string)
   description = "A set of key/value label pairs to assign to the function."
