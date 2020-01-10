@@ -35,15 +35,15 @@ No provider.
 
 | Name | Description |
 |------|-------------|
-| available\_memory\_mb | n/a |
-| entry\_point | n/a |
-| https\_trigger\_url | n/a |
-| name | n/a |
-| project | n/a |
-| region | n/a |
-| runtime | n/a |
-| service\_account | n/a |
-| service\_account\_email | n/a |
-| source\_repository | n/a |
+| available\_memory\_mb | Memory (in MB), available to the function. |
+| entry\_point | Name of the function that will be executed when the Google Cloud Function is triggered. |
+| https\_trigger\_url | URL which triggers function execution. Returned only if trigger\_http is used. |
+| name | The name for the Cloudfunction |
+| project\_id | ID of the project to which the Cloudfunction is deployed |
+| region | Region to which the Cloudfunction is deployed |
+| runtime | The runtime in which the function is going to run |
+| service\_account | Service Account for the Cloud Function |
+| service\_account\_email | The email for the Service Account to run the function with |
+| source\_repository | The URL pointing to the hosted repository where the function was defined at the time of deployment. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
