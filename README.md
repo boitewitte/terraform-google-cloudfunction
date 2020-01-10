@@ -19,6 +19,8 @@ No provider.
 | environment\_variables | A set of key/value environment variable pairs to assign to the function. | `map(string)` | `"null"` | no |
 | event\_triggers | A source that fires events in response to a condition in another service. Can't be used in conjunction with trigger\_http | `object` | `[]` | no |
 | function\_source | Defines the Source configuration for the Cloudfunction. Can't be used in conjunction with source\_repository\_url | `object` | `"null"` | no |
+| invoker\_members | Cloudfunction can be invoked by the members defined in this list | `list(string)` | `[]` | no |
+| is\_public\_function | Cloudfunction can be invoked by all users - Public function | `bool` | `false` | no |
 | labels | A set of key/value label pairs to assign to the function. | `map(string)` | `"null"` | no |
 | max\_instances | The limit on the maximum number of function instances that may coexist at a given time. | `number` | `"null"` | no |
 | project\_id | The Project ID to which the function will be deployed | `string` | `"null"` | no |
@@ -33,15 +35,15 @@ No provider.
 
 | Name | Description |
 |------|-------------|
-| available\_memory\_mb | n/a |
-| entry\_point | n/a |
-| https\_trigger\_url | n/a |
-| name | n/a |
-| project | n/a |
-| region | n/a |
-| runtime | n/a |
-| service\_account | n/a |
-| service\_account\_email | n/a |
-| source\_repository | n/a |
+| available\_memory\_mb | Memory (in MB), available to the function. |
+| entry\_point | Name of the function that will be executed when the Google Cloud Function is triggered. |
+| https\_trigger\_url | URL which triggers function execution. Returned only if trigger\_http is used. |
+| name | The name for the Cloudfunction |
+| project\_id | ID of the project to which the Cloudfunction is deployed |
+| region | Region to which the Cloudfunction is deployed |
+| runtime | The runtime in which the function is going to run |
+| service\_account | Service Account for the Cloud Function |
+| service\_account\_email | The email for the Service Account to run the function with |
+| source\_repository | The URL pointing to the hosted repository where the function was defined at the time of deployment. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
